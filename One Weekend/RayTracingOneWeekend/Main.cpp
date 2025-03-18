@@ -43,7 +43,7 @@ int main() {
     // Calculate the viewport dimensions with the same techinque 
     auto viewport_height = 2.0;
     auto viewport_width = viewport_height * (double(image_width) / image_height);
-    // Calculate the viewport's ""corners""
+    // Calculate the viewport's height, width diriractions
     auto viewport_u = vec3(viewport_width, 0, 0);
     auto viewport_v = vec3(0, -viewport_height, 0);
     // Calculate delta pixel aka pixel representation on the vector space
