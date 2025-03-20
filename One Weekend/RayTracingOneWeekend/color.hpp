@@ -1,8 +1,6 @@
 #ifndef COLOR_HPP
 #define COLOR_HPP
 
-#include <iostream>
-
 #include "vec3.hpp"
 
 using color = vec3;

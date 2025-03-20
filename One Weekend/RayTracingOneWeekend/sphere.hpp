@@ -1,14 +1,18 @@
 #ifndef SPHERE_HPP
 #define SPHERE_HPP
 
+#include <iostream>
+
 #include "hittable.hpp"
 #include "vec3.hpp"
+#include "ray.hpp"
 
 class sphere : public hittable {
 public:
 	sphere(const vec3& center, double radius) : _center(center), _radius(std::fmax(0, radius)) {}
 
 	bool hit(const ray& r, double ray_tmin, double ray_tmax, hit_record& rec) const override {
+		// center in world 
 		vec3 oc = _center - r.origin();
 		auto a = r.direction().length_squerd();
 		auto h = dot(r.direction(), oc);
@@ -31,7 +35,8 @@ public:
 
 		rec.t = root;
 		rec.p = r.at(rec.t);
-		rec.normal = (rec.p - _center) / _radius;
+		vec3 outward_normal = (rec.p - _center) / _radius;
+		rec.set_face_normal(r, outward_normal);
 
 		return true;
 	}
