@@ -1,13 +1,11 @@
-#include "rtweekend.hpp"
-
-#include "hittable.hpp"
-#include "hittable_list.hpp"
-#include "sphere.hpp"
-
+#include "rtweekend.h"
+#include "hittable.h"
+#include "hittable_list.h"
+#include "sphere.h"
 
 color ray_color(const ray& r, const hittable& world) {
     hit_record rec;
-    if (world.hit(r, 0, infinity, rec)) {
+    if (world.hit(r, interval(0, std::numeric_limits<double>::infinity()), rec)) {
         return 0.5 * (rec.normal + color(1, 1, 1));
     }
 
@@ -32,7 +30,7 @@ int main() {
 
     hittable_list world;
 
-    world.add(std::make_shared<sphere>(vec3(0, 0, -1), 0.5));
+    world.add(std::make_shared<sphere>(vec3(0, 0, -2), 0.5));
     world.add(std::make_shared<sphere>(vec3(0, 100.5, -1), 100));
 
     /* CAMERA */

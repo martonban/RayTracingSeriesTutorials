@@ -128,15 +128,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="sphere.hpp" />
+    <ClCompile Include="sphere.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="color.hpp" />
-    <ClInclude Include="hittable.hpp" />
-    <ClInclude Include="hittable_list.hpp" />
-    <ClInclude Include="ray.hpp" />
-    <ClInclude Include="rtweekend.hpp" />
-    <ClInclude Include="vec3.hpp" />
+    <ClInclude Include="color.h" />
+    <ClInclude Include="hittable.h" />
+    <ClInclude Include="hittable_list.h" />
+    <ClInclude Include="interval.h" />
+    <ClInclude Include="ray.h" />
+    <ClInclude Include="rtweekend.h" />
+    <ClInclude Include="vec3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -18,27 +18,30 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sphere.hpp">
+    <ClCompile Include="sphere.h">
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="vec3.hpp">
+    <ClInclude Include="vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="color.hpp">
+    <ClInclude Include="color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ray.hpp">
+    <ClInclude Include="ray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="hittable.hpp">
+    <ClInclude Include="hittable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="hittable_list.hpp">
+    <ClInclude Include="hittable_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="rtweekend.hpp">
+    <ClInclude Include="rtweekend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interval.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
