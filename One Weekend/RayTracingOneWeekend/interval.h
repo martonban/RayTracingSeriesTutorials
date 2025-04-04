@@ -5,7 +5,7 @@ class interval {
 public:
     double min, max;
 
-    interval() : min(+(std::numeric_limits<double>::infinity())), max(-(std::numeric_limits<double>::infinity())) {} // Default interval is empty
+    interval() : min(+(std::numeric_limits<double>::infinity())), max(-(std::numeric_limits<double>::infinity())) {}
 
     interval(double min, double max) : min(min), max(max) {}
 

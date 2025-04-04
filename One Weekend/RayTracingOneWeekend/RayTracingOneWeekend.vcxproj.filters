@@ -47,5 +47,8 @@
     <ClInclude Include="camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="random_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
