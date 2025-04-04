@@ -7,7 +7,7 @@ class ray {
 public:
 	// Constreuctors
 	ray() {}
-	ray(const vec3& origin, const vec3& dir) : _origin(_origin), _dir(dir) {}
+	ray(const vec3& origin, const vec3& dir) : _origin(origin), _dir(dir) {}
 
 
 	// Getters
