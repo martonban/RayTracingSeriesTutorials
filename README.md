@@ -29,3 +29,8 @@ cd One Weekend\x64\Release
 RayTracingOneWeekend.exe > image.ppm
 ```
 **Note!** The renderer will create a ```.ppm``` file next to the .exe.
+
+# Renderd Images:
+![image(23)](https://github.com/user-attachments/assets/f004b64e-1c60-47a0-8641-3147933c78c4)
+
+
