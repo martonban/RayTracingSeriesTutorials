@@ -17,7 +17,7 @@ public:
 
 	void render(const hittable& world) {
 		initalize();
-		// Rendering
+
 		std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
 		for (int j = image_height - 1; j >= 0; j--) {
@@ -36,12 +36,12 @@ public:
 		std::cerr << "\nDone!\n";
 	}
 private:
-	int image_height;    // Rendered image height
-	vec3 camera_center;         // Camera center
-	vec3 pixel00_location;    // Location of pixel 0, 0
-	vec3 pixel_delta_u;  // Offset to pixel to the right
-	vec3 pixel_delta_v;  // Offset to pixel below
-	double pixel_samples_scale;  // Color scale factor for a sum of pixel samples	
+	int image_height;				// Rendered image height
+	vec3 camera_center;				// Camera center
+	vec3 pixel00_location;			// Location of pixel 0, 0
+	vec3 pixel_delta_u;				// Offset to pixel to the right
+	vec3 pixel_delta_v;				// Offset to pixel below
+	double pixel_samples_scale;		// Color scale factor for a sum of pixel samples	
 
 	void initalize() {
 		image_height = int(image_width / aspect_ratio);
