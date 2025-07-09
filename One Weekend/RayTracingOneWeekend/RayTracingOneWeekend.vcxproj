@@ -136,6 +136,7 @@
     <ClInclude Include="hittable.h" />
     <ClInclude Include="hittable_list.h" />
     <ClInclude Include="interval.h" />
+    <ClInclude Include="presets.h" />
     <ClInclude Include="random_utils.h" />
     <ClInclude Include="ray.h" />
     <ClInclude Include="rtweekend.h" />

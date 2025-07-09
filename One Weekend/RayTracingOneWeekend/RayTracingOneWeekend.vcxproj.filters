@@ -50,5 +50,8 @@
     <ClInclude Include="random_utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="presets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
