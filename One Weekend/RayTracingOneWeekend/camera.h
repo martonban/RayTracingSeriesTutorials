@@ -72,7 +72,6 @@ private:
 	ray get_ray(int i, int j) const {
 		// Construct a camera ray originating from the origin and directed at randomly sampled
 		// point around the pixel location i, j.
-
 		auto offset = sample_square();
 		auto pixel_sample = pixel00_location
 			+ ((i + offset.x()) * pixel_delta_u)
