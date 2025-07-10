@@ -5,25 +5,35 @@
 #include "rtweekend.h"
 #include "random_utils.h"
 
+//-----------------------------------------------------------------------------
+//                          Ray Tracing Tutorial - Camera
+//
+// This class 
+//-----------------------------------------------------------------------------
+
+
+
 class camera {
 public:
-	/* RENDER TARGET */
-	// Using ratio to have consistent resoulution
+	// Default values, this will be overwritten by the presets on the main.cpp class
+	// Must be public -> easier to code :)
 	double aspect_ratio = 16.0 / 9.0;
 	int image_width = 1920;
 	int samples_per_pixel = 10;
 	int max_depth = 10;
 
-
+	// This function will be the triggerd when we want to render an image
 	void render(const hittable& world) {
 		initalize();
 
+		// Opening the file on the I/O stream (MUST HAVE)
 		std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
+		// Itarating every pixels + samples 
 		for (int j = image_height - 1; j >= 0; j--) {
+			// Progression debug text for the standard output
 			std::cerr << "\rScanlines remaining: " << j << "" << std::flush;
 			for (int i = 0; i < image_width; i++) {
-				// next pixel location
 				color pixel_color(0, 0, 0);
 				for (int sample = 0; sample < samples_per_pixel; sample++) {
 					ray r = get_ray(i, j);
@@ -32,7 +42,7 @@ public:
 				write_color(std::cout, pixel_samples_scale * pixel_color);
 			}
 		}
-
+		// Progression debug text for the standard output
 		std::cerr << "\nDone!\n";
 	}
 private:
@@ -43,6 +53,8 @@ private:
 	vec3 pixel_delta_v;				// Offset to pixel below
 	double pixel_samples_scale;		// Color scale factor for a sum of pixel samples	
 
+
+	// Before ray generation we have to calculate the private data members which are essential for ray generation
 	void initalize() {
 		image_height = int(image_width / aspect_ratio);
 		image_height = (image_height < 1) ? 1 : image_height;
@@ -83,8 +95,8 @@ private:
 		return ray(ray_origin, ray_direction);
 	}
 
+	// Returns the vector to a random point in the [-.5,-.5]-[+.5,+.5] unit square.
 	vec3 sample_square() const {
-		// Returns the vector to a random point in the [-.5,-.5]-[+.5,+.5] unit square.
 		return vec3(random_double() - 0.5, random_double() - 0.5, 0);
 	}
 

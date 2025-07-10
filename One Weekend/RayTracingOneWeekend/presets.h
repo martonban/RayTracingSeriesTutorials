@@ -7,7 +7,6 @@ enum Presets {
 	BALANCED,				// Good Results (FULL HD, 500 samples, 50 detph)
 	BEAUTY,					// Good Quality Image (FULL HD, 1000 samples, 50 depth)
 	FIDELITY				// ABSOLUTE CINEMA (4K, 1000 samples, 100 depth)
-
 };
 
 #endif
