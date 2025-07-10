@@ -26,7 +26,7 @@ int main() {
     camera cam;
     
     // Image Presets
-    enum Presets preset = PERFORMANCE;
+    enum Presets preset = POOR;
     switch (preset) {
         case POOR:
             cam.aspect_ratio = 16.0 / 9.0;

@@ -8,7 +8,6 @@
 //-----------------------------------------------------------------------------
 //                          Ray Tracing Tutorial - Camera
 //
-// This class 
 //-----------------------------------------------------------------------------
 
 
@@ -56,31 +55,37 @@ private:
 
 	// Before ray generation we have to calculate the private data members which are essential for ray generation
 	void initalize() {
+		// Image height calculation 
 		image_height = int(image_width / aspect_ratio);
 		image_height = (image_height < 1) ? 1 : image_height;
 
+		// AA realted 
 		pixel_samples_scale = 1.0 / samples_per_pixel;
 
 		camera_center = vec3(0, 0, 0);
 
-		// Determine viewport dimensions.
-		auto focal_length = 1.0;
-		auto viewport_height = 2.0;
-		auto viewport_width = viewport_height * (double(image_width) / image_height);
+		// Determine viewport dimensions
+		auto focal_length = 1.0;															// Distance between camera pos and the viewport
+		auto viewport_height = 2.0;															// [-1,1]
+		auto viewport_width = viewport_height * (double(image_width) / image_height);		// adjusted [-1,1] 
 
-		// Calculate the vectors across the horizontal and down the vertical viewport edges.
+		// Two direction vectors that define the horizontal and vertical axes of the viewport.
+		// They determine the directions and scales for stepping across the viewport plane.
+		// We use them to compute pixel positions starting from the top-left corner.
 		auto viewport_u = vec3(viewport_width, 0, 0);
 		auto viewport_v = vec3(0, -viewport_height, 0);
 
-		// Calculate the horizontal and vertical delta vectors from pixel to pixel.
+		// When we want to calculate the next pixel we have to know how much distance we need
+		// to move in the virtual world to have an accurate ray direction. Both are directional vectors  
 		pixel_delta_u = viewport_u / image_width;
 		pixel_delta_v = viewport_v / image_height;
 
-		// Calculate the location of the upper left pixel.
+		// Calculate the exact location of the upper left pixel.
 		auto viewport_upper_left = camera_center - vec3(0, 0, focal_length) - viewport_u / 2 - viewport_v / 2;
 		pixel00_location = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
 	}
 
+	// Ray Generation 
 	ray get_ray(int i, int j) const {
 		// Construct a camera ray originating from the origin and directed at randomly sampled
 		// point around the pixel location i, j.
@@ -100,6 +105,7 @@ private:
 		return vec3(random_double() - 0.5, random_double() - 0.5, 0);
 	}
 
+	// Calculate the pixel color only diffuse material
 	color ray_color(const ray& r, int depth, const hittable& world) const {
 		if (depth <= 0)
 			return color(0, 0, 0);
@@ -107,7 +113,7 @@ private:
 		hit_record rec;
 		if (world.hit(r, interval(0.001, std::numeric_limits<double>::infinity()), rec)) {
 			vec3 direction = rec.normal + random_unit_vector();
-			return 0.5 * ray_color(ray(rec.p, direction), depth-1, world);
+			return 0.1 * ray_color(ray(rec.p, direction), depth-1, world);
 		}
 
 		vec3 unit_direction = unit_vector(r.direction());

@@ -4,6 +4,13 @@
 #include "ray.h"
 #include "interval.h"
 
+//-----------------------------------------------------------------------------
+//                          Ray Tracing Tutorial - Hit Record
+//
+//	A ray can hit multiple objects in a scene. We need a way to store where the 
+//	ray hit someting in the scene.  
+//-----------------------------------------------------------------------------
+
 class hit_record {
 public:
 	vec3 p;
@@ -16,6 +23,15 @@ public:
 		normal = front_face ? outward_normal : -outward_normal;
 	}
 };
+
+
+//-----------------------------------------------------------------------------
+//                          Ray Tracing Tutorial - Hittable
+//
+//	This is an abstract class, we are going to derived every class wich we can
+//	see by the renderer like spheres or triangels, planes etc and these class 
+//	have to implements these funtions. 
+//-----------------------------------------------------------------------------
 
 class hittable {
 public:

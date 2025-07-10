@@ -30,7 +30,7 @@ public:
 		objects.push_back(object);
 	}
 
-	// 
+	// With this fuction we will itarate every hittable objext in the scene. 
 	bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
 		hit_record temp_rec;
 		bool hit_by_anything = false;
