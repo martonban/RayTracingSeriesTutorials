@@ -1,8 +1,12 @@
 #ifndef HITTABLE_H
 #define HITTABLE_H
 
+#include <memory>
+
 #include "ray.h"
 #include "interval.h"
+#include "material.h"
+
 
 //-----------------------------------------------------------------------------
 //                          Ray Tracing Tutorial - Hit Record
@@ -11,10 +15,13 @@
 //	ray hit someting in the scene.  
 //-----------------------------------------------------------------------------
 
+class material;
+
 class hit_record {
 public:
 	vec3 p;
 	vec3 normal;
+	std::shared_ptr<material> mat;
 	double t;
 	bool front_face;		// Is the normal at the hit point facing against the ray or not
 

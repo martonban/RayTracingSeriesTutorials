@@ -5,6 +5,8 @@
 #include "hittable_list.h"
 #include "sphere.h"
 #include "presets.h"
+#include "material.h"
+
 
 //-----------------------------------------------------------------------------
 //                          Ray Tracing Tutorial - Main
@@ -19,8 +21,15 @@
 int main() {
     // Scene setup and fill up with sphere geometry
     hittable_list world;
-    world.add(std::make_shared<sphere>(vec3(0, 0, -1), 0.5));
-    world.add(std::make_shared<sphere>(vec3(0, 100.5, -1), 100));
+    auto material_ground = std::make_shared<lambertian>(color(0.8, 0.8, 0.0));
+    auto material_center = std::make_shared<lambertian>(color(0.1, 0.2, 0.5));
+    auto material_left = std::make_shared<metal>(color(0.8, 0.8, 0.8));
+    auto material_right = std::make_shared<metal>(color(0.8, 0.6, 0.2));
+
+    world.add(std::make_shared<sphere>(vec3(0.0, -100.5, -1.0), 100.0, material_ground));
+    world.add(std::make_shared<sphere>(vec3(0.0, 0.0, -1.2), 0.5, material_center));
+    world.add(std::make_shared<sphere>(vec3(-1.0, 0.0, -1.0), 0.5, material_left));
+    world.add(std::make_shared<sphere>(vec3(1.0, 0.0, -1.0), 0.5, material_right));
 
     // Camera (shooting rays from it)
     camera cam;
