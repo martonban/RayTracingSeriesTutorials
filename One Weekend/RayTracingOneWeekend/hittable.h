@@ -5,7 +5,7 @@
 
 #include "ray.h"
 #include "interval.h"
-#include "material.h"
+#include "color.h"
 
 
 //-----------------------------------------------------------------------------
