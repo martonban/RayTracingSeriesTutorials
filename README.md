@@ -32,5 +32,7 @@ RayTracingOneWeekend.exe > image.ppm
 
 # Renderd Images:
 ![image(23)](https://github.com/user-attachments/assets/f004b64e-1c60-47a0-8641-3147933c78c4)
+![image (40)](https://github.com/user-attachments/assets/57fb7aed-b734-4791-87f4-46faa0737f0e)
+
 
 
